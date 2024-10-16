@@ -2,13 +2,12 @@
 using namespace std;
 
 int main() {
-    int a = 5, b = 6, c = 7, temp1, temp2;
+    int a = 5, b = 6, c = 7, temp;
 
-    temp1 = b;
-    temp2 = c;
+    temp = c;
+    c = b;
     b = a;
-    c = temp1;
-    a = temp2;
+    a = temp;
 
     cout << a << endl << b << endl << c;
     return 0;
