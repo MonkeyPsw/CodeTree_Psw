@@ -1,16 +1,17 @@
 #include <iostream>
-#include <string>
+//#include <string>
 using namespace std;
 
 int main() {
     int score;
-    string grade;
+    //string grade;
 
     cin >> score;
 
-    grade = score == 100 ? "pass" : "failure";
+    //grade = score == 100 ? "pass" : "failure";
 
-    cout << grade;
+    //cout << grade;
+    cout << (score == 100 ? "pass" : "failure");
 
     return 0;
 }
