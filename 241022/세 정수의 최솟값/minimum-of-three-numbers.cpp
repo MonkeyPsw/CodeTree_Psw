@@ -8,7 +8,9 @@ int main() {
         cout << a;
     else if (b <= a && b <= c)
         cout << b;
-    else if (c <= a && c <= b)
+    //else if (c <= a && c <= b)
+    //    cout << c;
+    else
         cout << c;
     return 0;
 }
