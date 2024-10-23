@@ -8,7 +8,7 @@ int main() {
     cin >> aAge >> aSex;
     cin >> bAge >> bSex;
 
-    cout << (aAge >= 19 && aSex == 'M' || bAge >= 19 && aSex == 'M');
+    cout << ((aAge >= 19 && aSex == 'M') || (bAge >= 19 && bSex == 'M'));
 
     return 0;
 }
