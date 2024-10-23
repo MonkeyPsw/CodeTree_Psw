@@ -8,7 +8,7 @@ int main() {
     cin >> aMath >> aEng;
     cin >> bMath >> bEng;
 
-    if (aMath > bMath || aMath == bMath && aEng > bEng)
+    if (aMath > bMath || (aMath == bMath && aEng > bEng))
         cout << 'A';
     else
         cout << 'B';
