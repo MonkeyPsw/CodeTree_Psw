@@ -2,10 +2,11 @@
 using namespace std;
 
 int main() {
-    int cnt = 0;
+    int n, cnt = 0;
     for (int i = 0; i < 10; i++)
     {
-        if (i % 2 != 0)
+        cin >> n;
+        if (n % 2 != 0)
             cnt++;
     }
     cout << cnt;
