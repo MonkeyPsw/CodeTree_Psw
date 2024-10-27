@@ -9,10 +9,10 @@ int main() {
     {
         if (i % 2 == 0)
         {
-            if (i % 3 == 0)
-                cnt3++;
-            else if (i % 12 == 0)
+            if (i % 12 == 0)
                 cnt12++;
+            else if (i % 3 == 0)
+                cnt3++;
             else
                 cnt2++;
         }
@@ -20,7 +20,10 @@ int main() {
         {
             if (i % 12 == 0)
                 cnt12++;
-            cnt3++;
+            else if (i % 2 == 0)
+                cnt2++;
+            else
+                cnt3++;
         }
         else if (i % 12 == 0)
             cnt12++;
