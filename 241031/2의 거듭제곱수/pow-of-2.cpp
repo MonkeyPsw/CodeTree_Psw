@@ -12,6 +12,17 @@ int main() {
             x++;
         }
     }
+    /* 솔루션
+    int prod = 1;
+    while(1) {
+		// prod가 n이 될 때까지 2를 곱합니다.
+		if(n == prod)
+			break;
+		
+		prod *= 2;
+		x++;
+    }
+    */
     cout << x;
     return 0;
 }
