@@ -9,15 +9,10 @@ int main() {
         for (int j = 0; j < n; j++)
         {
             if (i % 2 == 0)
-            {
                 cnt++;
-                cout << cnt << " ";
-            }
             else
-            {
                 cnt += 2;
-                cout << cnt << " ";
-            }
+            cout << cnt << " ";
         }
         cout << endl;
     }
