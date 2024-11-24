@@ -3,7 +3,7 @@ using namespace std;
 
 int main() {
 	int n, q;
-	int quest, a, b, s, e, idx;
+	int quest, a, b, s, e;
     int arr[100];
 	cin >> n >> q;
 
@@ -12,6 +12,7 @@ int main() {
 	
 	for (int i = 0; i < q; i++)
 	{
+		int idx = -1;
 		cin >> quest;
 		switch (quest)
 		{
@@ -28,13 +29,11 @@ int main() {
 						idx = i;
 						break;
 					}
-					else
-						idx = 0;
 				}
-				if (idx)
-					cout << ++idx;
-				else
+				if (idx == -1)
 					cout << 0;
+				else
+					cout << ++idx;
 				break;
 			case 3:
 				cin >> s >> e;
