@@ -12,7 +12,7 @@ int main() {
 	
 	for (int i = 0; i < q; i++)
 	{
-		int idx = -1;
+		int idx = -1; // 이거를 여기에 선언해야 했구나
 		cin >> quest;
 		switch (quest)
 		{
@@ -30,6 +30,7 @@ int main() {
 						break;
 					}
 				}
+				// cout << idx + 1 << endl; 이렇게 하면 되는구나
 				if (idx == -1)
 					cout << 0;
 				else
