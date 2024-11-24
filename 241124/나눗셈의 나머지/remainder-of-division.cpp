@@ -17,7 +17,7 @@ int main() {
 	for (int i = 0; i < cnt; i++)
 		cnt_Arr[arr[i]]++;
 
-	for (int i = 0; i < cnt; i++)
+	for (int i = 0; i < 10; i++)
 		sum += cnt_Arr[i] * cnt_Arr[i];
 
 	cout << sum;
