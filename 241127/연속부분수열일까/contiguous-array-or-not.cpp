@@ -2,7 +2,7 @@
 using namespace std;
 
 int main() {
-	bool isSub = true;
+	bool isSub = false;
     int n1, n2;
 	int a[100], b[100];
 	cin >> n1 >> n2;
@@ -14,7 +14,7 @@ int main() {
 
 	for (int i = 0; i < n1; i++)
 	{
-		if (!isSub)
+		if (isSub)
 			break;
 			
 		if (a[i] == b[0])
@@ -28,11 +28,11 @@ int main() {
 						isSub = false;
 						break;
 					}
+					else
+						isSub = true;
 				}
 			}
 		}
-		else
-			isSub = false;
 	}
 
 	cout << (isSub ? "Yes" : "No");
