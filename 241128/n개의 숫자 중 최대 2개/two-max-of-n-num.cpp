@@ -12,7 +12,7 @@ int main() {
     for (int i = 0; i < n - 1; i++)
     {
         int max = arr[i];
-        int idx;
+        int idx = i;
 
         for (int j = i + 1; j < n; j++)
         {
