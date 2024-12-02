@@ -17,8 +17,6 @@ int main() {
     {
         for (int j = i + 1; j < n; j++)
         {
-            if (dup[i] || dup[j])
-                continue;
             if (arr[i] == arr[j])
             {
                 dup[i] = true;
