@@ -16,6 +16,12 @@ int main() {
         for (int j = i; j < 4; j++)
             sum += arr[j][i];
     }
+    /*
+    for(int i = 0; i < 4; i++) {
+		for(int j = 0; j <= i; j++)
+			sum += arr_2d[i][j];
+	}
+    */
     
     cout << sum;
 
