@@ -8,7 +8,7 @@ int main() {
 
 	cin >> arr >> n;
 
-    if (arr.length() < n)
+    if (arr.length() <= n)
     {
         for (int i = arr.length() - 1; i >= 0; i--)
             cout << arr[i];
