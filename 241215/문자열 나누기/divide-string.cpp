@@ -8,21 +8,16 @@ int main() {
 
     cin >> n;
 
-    int length = 0;
-
     for (int i = 0; i < n; i++)
     {
         cin >> str[i];
         total += str[i];
-        length += str[i].length();
     }
     
-    int cnt = 1;
-
-    for (int i = 0; i < length; i++)
+    for (int i = 0; i < total.length(); i++)
     {
         cout << total[i];
-        if (cnt++ % 5 == 0)
+        if ((i + 1) % 5 == 0)
             cout << endl;
     }
     
