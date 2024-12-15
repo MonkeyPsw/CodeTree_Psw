@@ -20,8 +20,12 @@ int main() {
 		else
 		{
 			cnt += 2;
-			if (length > 9)
+			if (length > 9 && length < 100)
 				cnt++;
+			else if (length > 99 && length < 1000)
+				cnt += 2;
+			else if (length == 1000)
+				cnt += 3;
 			length = 1;
 		}
 
