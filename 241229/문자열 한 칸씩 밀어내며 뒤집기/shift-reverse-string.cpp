@@ -23,13 +23,14 @@ int main() {
                 str = str.substr(len - 1, 1) + str.substr(0, len - 1);
                 break;
             case 3:
+                // reverse(input_str.begin(), input_str.end());
                 string str_Rev;
                 for (int j = len - 1; j >= 0; j--)
                     str_Rev += str[j];
                 str = str_Rev;
                 break;
         }
-        
+
         cout << str << endl;
     }
 
