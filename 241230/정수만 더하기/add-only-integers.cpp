@@ -12,7 +12,7 @@ int main() {
     for (int i = 0; i < str.length(); i++)
     {
 		if (str[i] >= '0' && str[i] <= '9')
-			sum += (int)str[i] - '0';
+			sum += str[i] - '0';
     }
 
     cout << sum;
