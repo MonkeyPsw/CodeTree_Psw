@@ -6,8 +6,10 @@ int main() {
 
     cin >> a >> b;
 
-    cout << a + b << " ";
-    cout << (a >= b ? a - b : b - a);
+    int a_num = (int)a;
+    int b_num = (int)b;
+
+    cout << a_num + b_num << " " << (a_num >= b_num ? a_num - b_num : b_num - a_num);
 
     return 0;
 }
