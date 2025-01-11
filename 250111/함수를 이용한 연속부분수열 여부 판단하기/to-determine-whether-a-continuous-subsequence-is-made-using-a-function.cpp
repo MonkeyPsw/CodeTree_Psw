@@ -15,28 +15,31 @@ bool IsSame(int x, int y)
 int main() {
     cin >> n1 >> n2;
 
-    bool isSub = true;
+    bool isSub = false;
 
     for (int i = 0; i < n1; i++) cin >> a[i];
 
     for (int i = 0; i < n2; i++) cin >> b[i];
 
-    for (int i = 0; i < n1 - n2; i++)
+    for (int i = 0; i < n1; i++)
     {
+        if (isSub)
+            break;
+
         if (IsSame(a[i], b[0]))
         {
-            if (isSub)
-			    break;
-
-            for (int j = 0; j < n2; j++)
+            if (i + n2 - 1 <= n1)
             {
-                if (!IsSame(a[i + j], b[j]))
+                for (int j = 0; j < n2; j++)
                 {
-                    isSub = false;
-                    break;
+                    if (!IsSame(a[i + j], b[j]))
+                    {
+                        isSub = false;
+                        break;
+                    }
+                    else
+                        isSub = true;
                 }
-                else
-                    isSub = true;
             }
         }
     }
