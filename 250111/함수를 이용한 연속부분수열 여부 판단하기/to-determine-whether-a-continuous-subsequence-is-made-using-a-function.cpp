@@ -15,7 +15,7 @@ bool IsSame(int x, int y)
 int main() {
     cin >> n1 >> n2;
 
-    bool isSub = false;
+    bool isSub = true;
 
     for (int i = 0; i < n1; i++) cin >> a[i];
 
