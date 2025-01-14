@@ -5,7 +5,7 @@ using namespace std;
 
 string A;
 
-bool IsManyAPB(string &s)
+bool IsManyAPB(string s)
 {
     char c = s[0];
 
