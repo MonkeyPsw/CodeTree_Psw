@@ -11,7 +11,7 @@ class User {
         string id;
         int level;
 
-        User(string id = "codetree", int level = 10) {
+        User(string id = "", int level = 0) {
             this->id = id;
             this->level = level;
         }
@@ -20,14 +20,19 @@ class User {
 int main() {
     cin >> user2_id >> user2_level;
 
-    User user = User();
+    User user1 = User();
 
-    cout << "user " << user.id << " lv " << user.level << endl;
+    user1.id = "codetree";
+    user1.level = 10;
 
-    user.id = user2_id;
-    user.level = user2_level;
+    cout << "user " << user1.id << " lv " << user1.level << endl;
 
-    cout << "user " << user.id << " lv " << user.level;
+    User user2 = User();
+
+    user2.id = user2_id;
+    user2.level = user2_level;
+
+    cout << "user " << user2.id << " lv " << user2.level;
 
     return 0;
 }
