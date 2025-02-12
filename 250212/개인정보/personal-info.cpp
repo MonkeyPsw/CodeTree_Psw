@@ -41,6 +41,9 @@ int main() {
         d[i] = Data(name[i], height[i], weight[i]);
     }
 
+    cout << fixed;
+    cout.precision(1);
+
     sort(d, d + 5, cmpName);
 
     cout << "name" << endl;
