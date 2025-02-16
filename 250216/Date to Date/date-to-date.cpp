@@ -17,6 +17,9 @@ int main() {
         day2 += num_of_days[i];
     day2 += d2;
 
+    if (m1 == m2 && d1 == d2)
+        day2++;
+
     cout << day2 - day1;
 
     return 0;
