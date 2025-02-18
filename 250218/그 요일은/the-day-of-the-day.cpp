@@ -36,7 +36,7 @@ int AfterWeek(int n, string s)
     if (n > 7)
         cnt += n / 7;
     
-    if (n % 7 >= FindIndex(s))
+    if (n % 7 > FindIndex(s))
         cnt++;
 
     return cnt;
