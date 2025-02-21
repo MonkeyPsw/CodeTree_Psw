@@ -15,7 +15,7 @@ int main() {
         x1[i] += 100;
         x2[i] += 100;
 
-        for (int j = x1[i]; j <= x2[i]; j++)
+        for (int j = x1[i]; j < x2[i]; j++)
             line[j]++;
     }
 
