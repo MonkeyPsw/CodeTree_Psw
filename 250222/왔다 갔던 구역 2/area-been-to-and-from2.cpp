@@ -23,7 +23,7 @@ int main() {
         else
         {
             for (int j = 0; j < x[i]; j++)
-                line[origin--]++;
+                line[--origin]++;
         }
 
     }
