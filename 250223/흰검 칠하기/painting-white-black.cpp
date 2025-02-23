@@ -6,8 +6,10 @@ int n;
 int x[1000];
 char dir[1000];
 
-int line[200001];
-bool IsBlack[200001];
+//int line[200001];
+int isBlack[200001];
+int isWhite[200001];
+bool lastColorIsBlack[200001];
 
 int main() {
     int white = 0, black = 0, gray = 0;
@@ -24,8 +26,9 @@ int main() {
         {
             for (int j = 0; j < x[i]; j++)
             {
-                IsBlack[origin] = true;
-                line[origin]++;
+                isBlack[origin]++;
+                lastColorIsBlack[origin] = true;
+                //line[origin]++;
                 cnt++;
                 if (cnt < x[i])
                     origin++;
@@ -35,8 +38,9 @@ int main() {
         {
             for (int j = 0; j < x[i]; j++)
             {
-                IsBlack[origin] = false;
-                line[origin]++;
+                isWhite[origin]++;
+                lastColorIsBlack[origin] = false;
+                //line[origin]++;
                 cnt++;
                 if (cnt < x[i])
                     origin--;
@@ -46,20 +50,26 @@ int main() {
 
     for (int i = 1; i <= 200000; i++)
     {
-        if (line[i] >= 1)
+        int paint = isBlack[i] + isWhite[i];
+
+        if (paint > 0)
         {
-            if (line[i] <= 3)
+            if (isBlack[i] >= 2 && isWhite[i] >= 2)
+                gray++;
+            else
             {
-                if (IsBlack[i])
+                if (lastColorIsBlack[i])
                     black++;
                 else
                     white++;
             }
-
-            if (line[i] >= 4)
-                gray++;
         }
     }
+
+    /* 이렇게 하면 그냥 4번만 칠해져도 회색이 되버림
+        if (line[i] >= 4)
+            gray++;
+    */
 
     cout << white << " " << black << " " << gray;
 
