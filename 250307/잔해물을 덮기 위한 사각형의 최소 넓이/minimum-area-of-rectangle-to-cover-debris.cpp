@@ -19,9 +19,9 @@ int main() {
         x2[i] += OFFSET;
         y2[i] += OFFSET;
 
-        for (int j = x1[i]; j <= x2[i]; j++)
+        for (int j = x1[i]; j < x2[i]; j++)
         {
-            for (int k = y1[i]; k <= y2[i]; k++)
+            for (int k = y1[i]; k < y2[i]; k++)
                 rect[j][k] = 1 - i;
         }
     }
@@ -44,11 +44,14 @@ int main() {
     }
 
     int total = 0;
-    for (int i = minX; i < maxX; i++)
+    for (int i = minX; i <= maxX; i++)
     {
-        for (int j = minY; j < maxY; j++)
+        for (int j = minY; j <= maxY; j++)
             total++;
     }
+    
+    if (maxX == -1 || maxY == -1)
+        total = 0;
 
     cout << total;
 
