@@ -43,7 +43,12 @@ int main() {
         }
     }
 
-    int total = (maxX - minX) * (maxY - minY);
+    int total = 0;
+    for (int i = minX; i < maxX; i++)
+    {
+        for (int j = minY; j < maxY; j++)
+            total++;
+    }
 
     cout << total;
 
