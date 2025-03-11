@@ -2,14 +2,14 @@
 
 using namespace std;
 
-int n, m, length;
+int n, m;
 char d[1000];
 int t[1000];
 char d2[1000];
 int t2[1000];
 int a[1000001];
 int b[1000001];
-int cur;
+int cur = 1;
 
 int main() {
     cin >> n >> m;
@@ -18,7 +18,7 @@ int main() {
     {
         cin >> d[i] >> t[i];
 
-        for (int j = cur; j < t[i]; j++)
+        for (int j = cur; j <= cur + t[i]; j++)
         {
             if (d[i] == 'R')
                 a[j] = a[j - 1] + 1;
@@ -29,13 +29,13 @@ int main() {
         cur += t[i];
     }
 
-    cur = 0;
+    cur = 1;
 
     for (int i = 0; i < m; i++)
     {
         cin >> d2[i] >> t2[i];
 
-        for (int j = cur; j < t2[i]; j++)
+        for (int j = cur; j <= cur + t2[i]; j++)
         {
             if (d2[i] == 'R')
                 b[j] = b[j - 1] + 1;
@@ -48,7 +48,7 @@ int main() {
 
     int ans = -1;
 
-    for (int i = 1; i < 1000001; i++)
+    for (int i = 1; i < cur; i++)
     {
         if (a[i] == b[i])
         {
