@@ -23,7 +23,7 @@ int main() {
         {
             if (student[j] >= K)
             {
-                ans = student[j] - 1;
+                ans = j;
                 break;
             }
         }
