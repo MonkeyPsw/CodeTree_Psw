@@ -12,13 +12,22 @@ int main() {
     cin >> N >> M >> K;
 
     for (int i = 0; i < M; i++) {
+        /*
         if (ans > 0)
             break;
+        */
 
         cin >> penalty[i];
 
         student[penalty[i]]++;
 
+        if (student[penalty[i]] >= K)
+        {
+            ans = penalty[i];
+            break;
+        }
+
+        /* 이렇게 하면 너무 반복이 많지 맞아
         for (int j = 0; j < N; j++)
         {
             if (student[j] >= K)
@@ -27,6 +36,7 @@ int main() {
                 break;
             }
         }
+        */
     }
 
     cout << ans;
