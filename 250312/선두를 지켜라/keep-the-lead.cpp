@@ -34,11 +34,13 @@ int main() {
     }
     
     int cnt = 0;
-    int pre = 0; // a[0] == b[0]
+    //int pre = 0; // a[0] == b[0]
     // 0 : 같음, 1 : a가 선두, 2 : b가 선두
+    int lead = 0;
 
     for (int i = 1; i < cur; i++)
     {
+        /*
         int lead = -1;
 
         if (a[i] > b[i])
@@ -53,6 +55,22 @@ int main() {
             cnt++;
 
         pre = lead;
+        */
+
+        if (a[i] > b[i])
+        {
+            if (lead == 2)
+                cnt++;
+            
+            lead = 1;
+        }
+        else if (a[i] < b[i])
+        {
+            if (lead == 1)
+                cnt++;
+            
+            lead = 2;
+        }
     }
 
     cout << cnt;
