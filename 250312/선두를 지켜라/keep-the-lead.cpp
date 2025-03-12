@@ -34,24 +34,25 @@ int main() {
     }
     
     int cnt = 0;
-    bool isSame = false;
+    int pre = 0; // a[0] == b[0]
+    // 0 : 같음, 1 : a가 선두, 2 : b가 선두
 
     for (int i = 1; i < cur; i++)
     {
-        if (isSame && a[i - 1] == b[i - 1])
-        {
-            if (a[i] != b[i])
-            {
-                isSame = false;
-                cnt++;
-            }
-        }
+        int lead = -1;
 
-        if (!isSame && a[i] == b[i])
-        {
-            isSame = true;
-            continue;
-        }
+        if (a[i] > b[i])
+            lead = 1;
+        else if (a[i] < b[i])
+            lead = 2;
+        else
+            lead = pre;
+
+        // a[0] == b[0] 이후에 처음 선두가 바뀌는건 제외
+        if (pre != 0 && lead != pre)
+            cnt++;
+
+        pre = lead;
     }
 
     cout << cnt;
