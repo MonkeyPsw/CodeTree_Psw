@@ -47,19 +47,34 @@ int main() {
     {
         if (inf[h[i].x])
         {
-            if (cnt[h[i].x] < K)
+            if (inf[h[i].y])
             {
                 cnt[h[i].x]++;
-                inf[h[i].y] = 1;
+                cnt[h[i].y]++;
+            }
+            else
+            {
+                if (cnt[h[i].x] < K)
+                {
+                    cnt[h[i].x]++;
+                    inf[h[i].y] = 1;
+                }
             }
         }
-
-        if (inf[h[i].y])
+        else if (inf[h[i].y])
         {
-            if (cnt[h[i].y] < K)
+            if (inf[h[i].x])
             {
+                cnt[h[i].x]++;
                 cnt[h[i].y]++;
-                inf[h[i].x] = 1;
+            }
+            else
+            {
+                if (cnt[h[i].y] < K)
+                {
+                    cnt[h[i].y]++;
+                    inf[h[i].x] = 1;
+                }
             }
         }
     }
