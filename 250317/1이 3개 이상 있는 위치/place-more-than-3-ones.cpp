@@ -24,20 +24,19 @@ int main() {
 
     for (int x = 0; x < n; x++)
     {    
-        int cnt = 0;
-        
         for (int y = 0; y < n; y++)
         {
+            int cnt = 0;
             for (int d = 0; d < 4; d++)
             {
                 int nx = x + dx[d], ny = y + dy[d];
                 if (InRange(nx, ny, n) && grid[nx][ny])
                     cnt++;
             }
-        }
 
-        if (cnt >= 3)
-            ans++;
+            if (cnt >= 3)
+                ans++;
+        }
     }
     
     cout << ans;
