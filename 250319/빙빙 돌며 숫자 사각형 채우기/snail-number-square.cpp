@@ -4,7 +4,6 @@ using namespace std;
 
 int n, m;
 int arr[100][100];
-int num = 1;
 int x, y;
 int dx[4] = {0, 1, 0, -1}, dy[4] = {1, 0, -1, 0};
 int d;
@@ -17,7 +16,7 @@ bool InRange(int x, int y)
 int main() {
     cin >> n >> m;
 
-    arr[x][y] = num;
+    arr[x][y] = 1;
 
     for (int i = 2; i <= n * m; i++)
     {
