@@ -33,13 +33,16 @@ int main() {
     y = c - 1;
     int dir = GetDir(d);
   
-    while (t--)
+    for (int i = 0; i < t; i++)
     {
         int nx = x + dx[dir];
         int ny = y + dy[dir];
 
         if (!InRange(nx, ny))
+        {
             dir = 3 - dir;
+            continue;
+        }
         else
         {
             y = ny;
