@@ -22,10 +22,11 @@ int main() {
     {
         int nx = x + dx[d], ny = y + dy[d];
 
-        if (!InRange(nx, ny) || arr[nx][ny] != 0)
-            d = (d+ 1) % 4;
+        if (!InRange(nx, ny) || arr[nx][ny])
+            d = (d + 1) % 4;
 
-        x = x + dx[d]; y = y + dy[d];
+        x += dx[d];
+        y += dy[d];
         arr[x][y] = i;
     }
 
