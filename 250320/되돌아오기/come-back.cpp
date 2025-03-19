@@ -13,8 +13,6 @@ int d, cur;
 int main() {
     cin >> N;
 
-    int cnt = -1;
-
     for (int i = 0; i < N; i++)
     {
         cin >> dir[i] >> dist[i];
@@ -37,25 +35,20 @@ int main() {
 
         for (int j = 0; j < dist[i]; j++)
         {
-            if (i && !x && !y)
-            {
-                cnt = cur;
-                break;
-            }
-
             x += dx[d];
             y += dy[d];
             cur++;
-        }
 
-        if (!x && !y)
-        {
-            cnt = cur;
-            break;
+            if (!x && !y)
+            {
+                cout << cur;
+                // break로 하면 위에 i for문을 탈출 못하구나 맞네
+                return 0;
+            }
         }
     }
 
-    cout << cnt;
+    cout << -1;
 
     return 0;
 }
