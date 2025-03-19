@@ -37,15 +37,15 @@ int main() {
 
         for (int j = 0; j < dist[i]; j++)
         {
-            x += dx[d];
-            y += dy[d];
-            cur++;
-
-            if (!x && !y)
+            if (i && !x && !y)
             {
                 cnt = cur;
                 break;
             }
+
+            x += dx[d];
+            y += dy[d];
+            cur++;
         }
     }
 
