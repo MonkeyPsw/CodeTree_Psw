@@ -47,6 +47,12 @@ int main() {
             y += dy[d];
             cur++;
         }
+
+        if (!x && !y)
+        {
+            cnt = cur;
+            break;
+        }
     }
 
     cout << cnt;
