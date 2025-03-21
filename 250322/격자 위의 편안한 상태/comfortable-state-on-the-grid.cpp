@@ -40,7 +40,8 @@ int main() {
 
         grid[x][y]++;
 
-        cout << CheckPaint(x, y) ? 1 : 0 << endl;
+        cout << CheckPaint(x, y) ? 1 : 0;
+        cout << endl;
     }
 
     return 0;
