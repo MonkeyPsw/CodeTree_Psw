@@ -48,6 +48,7 @@ int NextDir(int x, int y, int d)
 
     if (grid[x][y] == '/')
         return slashNextD[d];
+        //return d ^ 1; XOR연산이 있었구나
     else
         return 3 - d;
 }
