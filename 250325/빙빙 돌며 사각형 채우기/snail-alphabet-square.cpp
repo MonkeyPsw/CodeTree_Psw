@@ -27,7 +27,7 @@ int main() {
 
         x += dx[d];
         y += dy[d];
-        arr[x][y] = i + 'A';
+        arr[x][y] = i % 26 + 'A';
     }
 
     for (int i = 0; i < n; i++)
