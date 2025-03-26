@@ -13,10 +13,10 @@ int main() {
         cin >> A[i];
     }
 
-
     for (int i = 0; i < n; i++)
     {
         int cnt = 0;
+
         for (int j = 0; j < n; j++)
             cnt += abs(i - j) * A[j];
 
@@ -24,7 +24,7 @@ int main() {
             ans = cnt;
     }
 
-    
+    cout << ans;
 
     return 0;
 }
