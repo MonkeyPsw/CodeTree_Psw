@@ -3,13 +3,13 @@
 using namespace std;
 
 int board[19][19];
-int black[3], white[3]; // 0가로 1세로 2대각
+int black[4], white[4]; // 0가로 1세로 2오른쪽아래대각\ 3왼쪽아래대각/
 bool isAns, isBlack;
 int x, y;
 
 void ResetArr(bool color)
 {
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < 4; i++)
     {
         if (color)
             black[i] = 0;
@@ -43,9 +43,11 @@ int main() {
                         black[1]++;
                     if (board[i + n][j + n] == 1)
                         black[2]++;
+                    if (board[i - n][j + n] == 1)
+                        black[3]++;
                 }
 
-                for (int n = 0; n < 3; n++)
+                for (int n = 0; n < 4; n++)
                 {
                     if (black[n] == 4)
                     {
@@ -59,9 +61,14 @@ int main() {
                             x = i + 1;
                             y = j + 3;
                         }
-                        else
+                        else if (n == 2)
                         {
                             x = i + 3;
+                            y = j + 3;
+                        }
+                        else
+                        {
+                            x = i - 1;
                             y = j + 3;
                         }
 
@@ -82,9 +89,11 @@ int main() {
                         white[1]++;
                     if (board[i + n][j + n] == 2)
                         white[2]++;
+                    if (board[i - n][j + n] == 2)
+                        white[3]++;
                 }
 
-                for (int n = 0; n < 3; n++)
+                for (int n = 0; n < 4; n++)
                 {
                     if (white[n] == 4)
                     {
@@ -98,9 +107,14 @@ int main() {
                             x = i + 1;
                             y = j + 3;
                         }
-                        else
+                        else if (n == 2)
                         {
                             x = i + 3;
+                            y = j + 3;
+                        }
+                        else
+                        {
+                            x = i - 1;
                             y = j + 3;
                         }
 
