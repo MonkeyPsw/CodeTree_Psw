@@ -7,6 +7,24 @@ int black[4], white[4]; // 0가로 1세로 2오른쪽아래대각\ 3왼쪽아래
 bool isAns, isBlack;
 int x, y;
 
+// dx dy 생각은 했는데 안썼다 나중에 다시 해볼까
+/*
+int dx[8] = {1, 1, 0, -1, -1, -1, 0, 1};
+int dy[8] = {0, 1, 1, 1, 0, -1, -1, -1};
+*/
+// 근데 굳이 8방향 다 해야하나? 그건 또 몰루
+// 왼쪽아래 아래 오른쪽아래 오른쪽만 해도될듯?
+/*
+int dx[4] = {1, 1, 1, 0};
+int dy[4] = {-1, 0, 1, 1};
+
+bool InRange(int x, int y)
+{
+    return 0 <= x && x < 19 && 0 <= y && y < 19;
+}
+*/
+
+
 void ResetArr(bool color)
 {
     for (int i = 0; i < 4; i++)
