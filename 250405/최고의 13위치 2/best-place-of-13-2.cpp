@@ -22,6 +22,7 @@ int main() {
             {
                 for (int l = 0; l < N - 2; l++)
                 {
+                    // if (i == k && abs(j - l) <= 2)
                     if (i == k && l <= j + 2)
                         continue;
 
