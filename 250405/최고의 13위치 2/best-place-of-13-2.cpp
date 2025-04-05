@@ -22,7 +22,7 @@ int main() {
             {
                 for (int l = 0; l < N - 2; l++)
                 {
-                    if (i == k && l < j + 2)
+                    if (i == k && l <= j + 2)
                         continue;
 
                     int sum1 = arr[i][j] + arr[i][j + 1] + arr[i][j + 2];
