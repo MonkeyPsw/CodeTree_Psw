@@ -18,10 +18,9 @@ int main() {
         cin >> x[i] >> c[i];
 
         line[x[i]] = c[i];
-        val = max(val, x[i]);
     }
 
-    for (int i = 1; i <= val - K + 1; i++)
+    for (int i = 1; i <= 10000 - K + 1; i++)
     {
         int cnt = 0;
         
