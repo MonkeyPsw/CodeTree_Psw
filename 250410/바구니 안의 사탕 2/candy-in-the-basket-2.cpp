@@ -25,11 +25,11 @@ int main() {
         }
     }
 
-    for (int i = K; i < 100 - K; i++)
+    for (int i = min(K, 100 - K); i < max(K, 100 - K); i++)
     {
         int sum = 0;
 
-        for (int j = i - K; j <= i + K; j++)
+        for (int j = max(0, i - K); j <= min(100, i + K); j++)
         {
             for (int l = 0; l <= N; l++)
             {
