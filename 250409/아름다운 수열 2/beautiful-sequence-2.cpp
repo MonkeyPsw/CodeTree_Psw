@@ -40,7 +40,7 @@ int main() {
                 if (!check[k] && A[j] == B[k])
                 {
                     check[k] = true;
-                    continue;
+                    break;
                 }
             }
         }
