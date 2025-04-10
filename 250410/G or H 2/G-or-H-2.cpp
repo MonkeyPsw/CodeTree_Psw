@@ -26,6 +26,9 @@ int main() {
             int cntG = 0;
             int cntH = 0;
 
+            if (line[i] == '\0' || line[j] == '\0')
+                continue;
+
             for (int k = i; k <= j; k++)
             {
                 if (line[k] == 'G')
@@ -34,13 +37,8 @@ int main() {
                     cntH++;
             }
 
-            if ((cntG && !cntH) ||
-                (!cntG && cntH) ||
-                (cntG == cntH && cntG > 0))
-            {
-                if (line[i] != '\0' && line[j] != '\0')
-                    ans = max(ans, j - i);
-            }
+            if (!cntG || !cntH || cntG == cntH)
+                ans = max(ans, j - i);          
         }
     }
 
