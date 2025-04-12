@@ -25,10 +25,17 @@ int StrikeCheck(int a, int b)
 int BallCheck(int a, int b)
 {
     int ballCnt = 0;
-    int a1 = a / 100;
-    int a2 = a % 100 / 10;
-    int a3 = a % 10;
+    int a1 = a / 100, a2 = a % 100 / 10, a3 = a % 10;
+    int b1 = b / 100, b2 = b % 100 / 10, b3 = b % 10;
 
+    if (a1 == b2 || a1 == b3)
+        ballCnt++;
+    if (a2 == b1 || a2 == b3)
+        ballCnt++;
+    if (a3 == b1 || a3 == b2)
+        ballCnt++;
+
+    /* 틀렸어
     if (a1 == b % 10 || a2 == b % 10)
         ballCnt++;
 
@@ -40,16 +47,6 @@ int BallCheck(int a, int b)
     b /= 10;
 
     if (a2 == b % 10 || a3 == b % 10)
-        ballCnt++;
-
-    /*
-    int b1 = b / 100, b2 = b % 100 / 10, b3 = b % 10;
-
-    if (a1 == b2 || a1 == b3)
-        ballCnt++;
-    if (a2 == b1 || a2 == b3)
-        ballCnt++;
-    if (a3 == b1 || a3 == b2)
         ballCnt++;
     */
     
@@ -76,8 +73,8 @@ int main() {
 
                 for (int l = 0; l < n; l++)
                 {
-                    if (!StrikeCheck(aNum, bNum[l]) == str[l] ||
-                        !BallCheck(aNum, bNum[l]) == ball[l])
+                    if (StrikeCheck(aNum, bNum[l]) != str[l] ||
+                        BallCheck(aNum, bNum[l]) != ball[l])
                         {
                             isRight = false;
                             break;
