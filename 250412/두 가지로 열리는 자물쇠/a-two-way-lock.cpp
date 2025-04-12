@@ -8,6 +8,7 @@ int a1, b1, c1;
 int a2, b2, c2;
 int cnt;
 
+// 생각 어렵게 하지말고 그냥 내부거리(N-1 없이)로 계산한다고 느끼면 될듯
 bool InRange(int abc, int num)
 {
     return (abs(abc - num) <= 2 || abs(abc - num) >= N - 2);
