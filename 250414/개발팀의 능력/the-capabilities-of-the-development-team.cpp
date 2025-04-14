@@ -17,7 +17,7 @@ int GetDiff(int i, int j, int k, int l)
     if (sum1 == sum2)
         return INT_MAX;
 
-    for (int n = 0; n < 6; n++)
+    for (int n = 0; n < 5; n++)
         allSum += arr[n];
 
     allSum -= sum1;
@@ -34,13 +34,13 @@ int main() {
         cin >> arr[i];
     }
 
-    for (int i = 0; i < 6; i++)
+    for (int i = 0; i < 5; i++)
     {
-        for (int j = 0; j < 6; j++)
+        for (int j = 0; j < 5; j++)
         {
-            for (int k = 0; k < 6; k++)
+            for (int k = 0; k < 5; k++)
             {
-                for (int l = 0; l < 6; l++)
+                for (int l = 0; l < 5; l++)
                 {
                     if (i == j || i == k || i == l ||
                         j == k || j == l || k == l)
