@@ -7,7 +7,7 @@ using namespace std;
 int N;
 int x[100];
 int y[100];
-double ans = 0;
+int ans = 0;
 
 int CalTriX(int a, int b, int c)
 {
@@ -51,14 +51,14 @@ int main() {
                 
                 int valX = CalTriX(i, j, k);
                 int valY = CalTriY(i, j, k);
-                double tmp = valX * valY * 0.5;
+                int tmp = valX * valY;
 
                 ans = max(ans, tmp);
             }
         }
     }
 
-    cout << ans * 2;
+    cout << ans;
 
     return 0;
 }
