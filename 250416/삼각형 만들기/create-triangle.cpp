@@ -8,6 +8,15 @@ int N;
 int x[100];
 int y[100];
 int ans = 0;
+// double인가 했는데 괜한 실수였고 아오 바보
+
+/* 삼각형의 넓이 사선 공식 (신발끈 공식)
+// 삼각형의 넓이에 2를 곱한 값을 반환합니다.
+int area(int i, int j, int k) {
+    return abs((x[i] * y[j] + x[j] * y[k] + x[k] * y[i]) - 
+               (x[j] * y[i] + x[k] * y[j] + x[i] * y[k]));
+}
+*/
 
 int CalTriX(int a, int b, int c)
 {
@@ -58,6 +67,7 @@ int main() {
         }
     }
 
+    // 왜 출력이 곱하기2인가 했네 아 틀릴게 아닌데
     cout << ans;
 
     return 0;
