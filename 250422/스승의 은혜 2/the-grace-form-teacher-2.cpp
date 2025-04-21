@@ -19,6 +19,11 @@ int main() {
     for (int i = 0; i < N; i++)
     {
         int sum = 0;
+        int cnt = 0;
+
+        P[i] /= 2;
+
+        /*
         int cnt = N;
 
         P[i] /= 2;
@@ -35,6 +40,18 @@ int main() {
             }
             else
                 break;
+        }
+        */
+
+        // 이게 더 낫네
+        for (int j = 0; j < N; j++)
+        {
+            sum += P[j];
+
+            if (sum > B)
+                break;
+
+            cnt++;
         }
 
         ans = max(ans, cnt);
