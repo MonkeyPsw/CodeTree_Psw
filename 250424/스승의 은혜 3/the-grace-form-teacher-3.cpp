@@ -8,6 +8,7 @@ int P[1000];
 int S[1000];
 int ans;
 
+/* 너무 어렵게 풀었어
 class Gift {
     public :
         int price, ship, index;
@@ -73,6 +74,47 @@ int main() {
                 break;
             }
         }
+    }
+
+    cout << ans;
+
+    return 0;
+}
+*/
+
+int main() {
+    cin >> N >> B;
+
+    for (int i = 0; i < N; i++) {
+        cin >> P[i] >> S[i];
+    }
+
+    for (int i = 0; i < N; i++)
+    {
+        int sum = 0;
+        int cnt = 0;
+        int arr[1000] = {};
+
+        P[i] /= 2;
+
+        for (int j = 0; j < N; j++)
+            arr[j] = P[j] + S[j];
+
+        sort(arr, arr + N);
+
+        for (int j = 0; j < N; j++)
+        {
+            sum += arr[j];
+
+            if (sum > B)
+                break;
+
+            cnt++;
+        }
+
+        ans = max(ans, cnt);
+
+        P[i] *= 2;
     }
 
     cout << ans;
