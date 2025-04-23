@@ -10,11 +10,12 @@ int ans;
 
 class Gift {
     public :
-        int price, ship;
+        int price, ship, index;
 
-        Gift(int p, int s) {
+        Gift(int p, int s, int i) {
             price = p;
             ship = s;
+            index = i;
         }
 
         Gift() {}
@@ -33,7 +34,7 @@ int main() {
     for (int i = 0; i < N; i++) {
         cin >> P[i] >> S[i];
 
-        g[i] = Gift(P[i], S[i]);
+        g[i] = Gift(P[i], S[i], i);
     }
 
     for (int i = 0; i < N; i++)
@@ -41,8 +42,15 @@ int main() {
         int sum = 0;
         int cnt = 0;
 
-        g[i].price /= 2;
-
+        for (int j = 0; j < N; j++)
+        {
+            if (g[j].index == i)
+            {
+                g[j].price /= 2;
+                break;
+            }
+        }
+        
         sort(g, g + N, CmpPrice);
 
         for (int j = 0; j < N; j++)
@@ -57,7 +65,14 @@ int main() {
 
         ans = max(ans, cnt);
 
-        g[i].price *= 2;
+        for (int j = 0; j < N; j++)
+        {
+            if (g[j].index == i)
+            {
+                g[j].price *= 2;
+                break;
+            }
+        }
     }
 
     cout << ans;
