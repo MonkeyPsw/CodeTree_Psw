@@ -6,6 +6,7 @@ using namespace std;
 
 int n;
 int a[100];
+int arr[100];
 int ans;
 
 int main() {
@@ -17,18 +18,20 @@ int main() {
 
     for (int i = 0; i < n; i++)
     {
+        int cnt = 0;
+
         for (int j = i + 1; j < n; j++)
         {
-            if (abs(a[i] - a[j]) <= 1)
-                continue;
-
-            for (int k = min(a[i], a[j]) + 1; k <= max(a[i], a[j]) - 1; k++)
+            if ((a[i] + a[j]) % 2 == 0)
             {
-                if (a[j] - k == k - a[i])
-                    ans++;
+                int k = (a[i] + a[j]) / 2;
+                arr[k]++;
             }
         }
     }
+
+    for (int i = 2; i < 100; i++)
+        ans = max(ans, arr[i]);
     
     cout << ans;
 
