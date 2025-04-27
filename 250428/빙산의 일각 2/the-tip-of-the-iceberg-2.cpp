@@ -17,6 +17,7 @@ int main() {
         maxH = max(maxH, h[i]);
     }
 
+    /* GPT와 claude의 추천
     for (int i = 1; i <= maxH; i++)
     {
         int cnt = 0;
@@ -38,6 +39,7 @@ int main() {
 
         ans = max(ans, cnt);
     }
+    */
 
     /* 이거 대체 반례가 뭐지 내가 뭘 잘못했지 새벽감성 실패
     for (int i = 1; i <= maxH; i++)
@@ -56,6 +58,23 @@ int main() {
         ans = max(ans, cnt);
     }
     */
+
+    // 아니 설마 1부터 시작하는건가 했는데 진짜네
+    for (int i = 1; i <= maxH; i++)
+    {
+        int cnt = 0;
+
+        if (h[0] > i)
+            cnt++;
+
+        for (int j = 1; j < n ; j++)
+        {
+            if (h[j] - i > 0 && h[j - 1] - i <= 0)
+                cnt++;
+        }
+
+        ans = max(ans, cnt);
+    }
 
     cout << ans;
 
