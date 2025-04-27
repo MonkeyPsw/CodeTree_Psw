@@ -67,12 +67,27 @@ int main() {
         cin >> c[i] >> x[i];
 
         line[x[i]] = c[i];
+
+        /* 해설은 전체 배열이 아니라 이렇게 하네
+        if(x == 'S')
+            s[cnt_s++] = y;
+        else
+            n[cnt_n++] = y;
+        */
     }
 
     for (int i = a; i <= b; i++)
     {
         int d1 = DistanceS(i);
         int d2 = DistanceN(i);
+
+        /* 이러면 굳이 1000까지 안가고 케이스로 제시된거만 비교하면 되니까
+        for(int j = 0; j < cnt_s; j++)
+            distance_s = min(distance_s, abs(s[j] - i));
+        
+        for(int j = 0; j < cnt_n; j++)
+            distance_n = min(distance_n, abs(n[j] - i));
+        */
 
         if (d1 <= d2)
             ans++;
