@@ -16,12 +16,35 @@ int ReverseNum(int n)
     return stoi(s);
 }
 
+int ReverseNumInt(int n)
+{
+    int num = 0;
+
+    while (n > 0)
+    {
+        num = num * 10 + n % 10;
+        n /= 10;
+    }
+
+    return num;
+}
+
 int main() {
     cin >> X >> Y;
 
+    /*
     for (int i = X; i <= Y; i++)
     {
         int tmp = ReverseNum(i);
+
+        if (i == tmp)
+            ans++;
+    }
+    */
+
+    for (int i = X; i <= Y; i++)
+    {
+        int tmp = ReverseNumInt(i);
 
         if (i == tmp)
             ans++;
