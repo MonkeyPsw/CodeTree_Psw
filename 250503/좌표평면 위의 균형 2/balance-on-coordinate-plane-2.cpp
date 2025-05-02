@@ -39,9 +39,9 @@ int main() {
         minY = min(minY, y[i]);
     }
 
-    for (int lineX = minX + 1; lineX <= maxX - 1; lineX += 2)
+    for (int lineX = minX - 1; lineX <= maxX + 1; lineX += 2)
     {
-        for (int lineY = minY + 1; lineY <= maxY - 1; lineY += 2)
+        for (int lineY = minY - 1; lineY <= maxY + 1; lineY += 2)
         {
             int q1 = 0, q2 = 0, q3 = 0, q4 = 0;
 
