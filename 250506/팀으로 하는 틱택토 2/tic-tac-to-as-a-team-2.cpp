@@ -4,16 +4,27 @@
 using namespace std;
 
 string inp[3];
-int a, b;
-int cnt, ans;
+int ans;
+bool arr[10];
 
 // 가로
 bool checkH(int num)
 {
+    if (arr[inp[num][0] - '0'] &&
+        arr[inp[num][1] - '0'] &&
+        arr[inp[num][2] - '0'])
+    return false;
+
     if (inp[num][0] == inp[num][1] && inp[num][0] != inp[num][2] ||
         inp[num][1] == inp[num][2] && inp[num][0] != inp[num][1] ||
         inp[num][0] == inp[num][2] && inp[num][0] != inp[num][1])
+    {
+        arr[inp[num][0] - '0'] = true;
+        arr[inp[num][1] - '0'] = true;
+        arr[inp[num][2] - '0'] = true;
+
         return true;
+    }
 
     return false;
 }
@@ -21,10 +32,21 @@ bool checkH(int num)
 // 세로
 bool checkV(int num)
 {
+    if (arr[inp[0][num] - '0'] &&
+        arr[inp[1][num] - '0'] &&
+        arr[inp[2][num] - '0'])
+    return false;
+
     if (inp[0][num] == inp[1][num] && inp[0][num] != inp[2][num] ||
         inp[1][num] == inp[2][num] && inp[0][num] != inp[1][num] ||
         inp[0][num] == inp[2][num] && inp[0][num] != inp[1][num])
+    {
+        arr[inp[0][num] - '0'] = true;
+        arr[inp[1][num] - '0'] = true;
+        arr[inp[2][num] - '0'] = true;
+
         return true;
+    }
 
     return false;
 }
@@ -53,12 +75,22 @@ int main() {
     if (inp[0][0] == inp[1][1] && inp[0][0] != inp[2][2] ||
         inp[1][1] == inp[2][2] && inp[1][1] != inp[0][0] ||
         inp[0][0] == inp[2][2] && inp[0][0] != inp[1][1])
-        ans++;
+    {
+        if (!(arr[inp[0][0] - '0'] &&
+            arr[inp[1][1] - '0'] &&
+            arr[inp[2][2] - '0']))
+            ans++;
+    }
 
     if (inp[2][0] == inp[1][1] && inp[2][0] != inp[0][2] ||
         inp[1][1] == inp[0][2] && inp[1][1] != inp[2][0] ||
         inp[2][0] == inp[0][2] && inp[2][0] != inp[1][1])
-        ans++;
+    {
+        if (!(arr[inp[2][0] - '0'] &&
+            arr[inp[1][1] - '0'] &&
+            arr[inp[0][2] - '0']))
+            ans++;
+    }
 
     cout << ans;
 
