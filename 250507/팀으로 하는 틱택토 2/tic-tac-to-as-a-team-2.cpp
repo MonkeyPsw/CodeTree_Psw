@@ -35,52 +35,6 @@ bool checkLine(char a, char b, char c, int num1, int num2)
     return false;
 }
 
-/*
-// 가로
-bool checkH(int num)
-{
-    if (arr[inp[num][0] - '0'] &&
-        arr[inp[num][1] - '0'] &&
-        arr[inp[num][2] - '0'])
-        return false;
-
-    if (inp[num][0] == inp[num][1] && inp[num][0] != inp[num][2] ||
-        inp[num][1] == inp[num][2] && inp[num][0] != inp[num][1] ||
-        inp[num][0] == inp[num][2] && inp[num][0] != inp[num][1])
-    {
-        arr[inp[num][0] - '0'] = true;
-        arr[inp[num][1] - '0'] = true;
-        arr[inp[num][2] - '0'] = true;
-
-        return true;
-    }
-
-    return false;
-}
-
-// 세로
-bool checkV(int num)
-{
-    if (arr[inp[0][num] - '0'] &&
-        arr[inp[1][num] - '0'] &&
-        arr[inp[2][num] - '0'])
-        return false;
-
-    if (inp[0][num] == inp[1][num] && inp[0][num] != inp[2][num] ||
-        inp[1][num] == inp[2][num] && inp[0][num] != inp[1][num] ||
-        inp[0][num] == inp[2][num] && inp[0][num] != inp[1][num])
-    {
-        arr[inp[0][num] - '0'] = true;
-        arr[inp[1][num] - '0'] = true;
-        arr[inp[2][num] - '0'] = true;
-
-        return true;
-    }
-
-    return false;
-}
-*/
-
 int main() {
     for (int i = 0; i < 3; i++) cin >> inp[i];
 
@@ -119,63 +73,78 @@ int main() {
         }
     }
 
-    /*
-    for (int i = 0; i < 3; i++)
-    {
-        if (checkLine(inp[i][0], inp[i][1], inp[i][2]))
-            ans++;
-    }
+    // 해설은 그냥 개수를 세면서 하나하나 비교했네
+    /* 대각선 좌표 지정은 저렇게 하는거였군
+    // 모든 쌍에 대해 전부 시도해 봅니다.
+    for(int i = 1; i <= MAX_X; i++)
+        for(int j = i + 1; j <= MAX_X; j++) {
+            // i, j 두 명이 팀이 됐을 때 이길 수 있는지를 확인합니다.
+            // win : 두 명이 팀이 됐을 때 이길 수 있다면 true
+            bool win = false;
 
-    for (int j = 0; j < 3; j++)
-    {
-        if (checkLine(inp[0][j], inp[1][j], inp[2][j]))
-            ans++;
-    }
+            // num_i , num_j : 각 줄에 i, j가 나오는 개수
+            int num_i = 0, num_j = 0;
 
-    if (checkLine(inp[0][0], inp[1][1], inp[2][2]))
-        ans++;
-    if (checkLine(inp[2][0], inp[1][1], inp[0][2]))
-        ans++;
-    */
+            // 가로로 빙고가 만들어질 때
+            for(int k = 0; k < MAX_A; k++) {
+                num_i = 0, num_j = 0;
+                for(int l = 0; l < MAX_A; l++) {
+                    if(board[k][l] == i)
+                        num_i++;
+                    if(board[k][l] == j)
+                        num_j++;
+                }
 
-    /*
-    for (int i = 0; i < 3; i++)
-    {
-        for (int j = 0; j < 3; j++)
-        {
-            if (i == 0)
-            {
-                if (checkV(j))
-                    ans++;
+                // 3개의 칸에 i, j가 총 3번 나오며
+                // 둘 다 최소 1번 이상 나오면 승리
+                if(num_i + num_j == 3 && num_i >= 1 && num_j >= 1)
+                    win = true;
             }
 
-            if (j == 0)
-            {
-                if (checkH(i))
-                    ans++;
+            // 세로로 빙고가 만들어질 때
+            for(int k = 0; k < MAX_A; k++) {
+                num_i = 0, num_j = 0;
+                for(int l = 0; l < MAX_A; l++) {
+                    if(board[l][k] == i)
+                        num_i++;
+                    if(board[l][k] == j)
+                        num_j++;
+                }
+
+                // 3개의 칸에 i, j가 총 3번 나오며
+                // 둘 다 최소 1번 이상 나오면 승리
+                if(num_i + num_j == 3 && num_i >= 1 && num_j >= 1)
+                    win = true;
             }
-        }
-    }
 
-    if (inp[0][0] == inp[1][1] && inp[0][0] != inp[2][2] ||
-        inp[1][1] == inp[2][2] && inp[1][1] != inp[0][0] ||
-        inp[0][0] == inp[2][2] && inp[0][0] != inp[1][1])
-    {
-        if (!(arr[inp[0][0] - '0'] &&
-            arr[inp[1][1] - '0'] &&
-            arr[inp[2][2] - '0']))
-            ans++;
-    }
+            // 왼쪽 위에서 오른쪽 아래를 잇는 대각선으로 빙고가 만들어질 때
+            num_i = 0, num_j = 0;
+            for(int k = 0; k < MAX_A; k++) {
+                if(board[k][k] == i)
+                    num_i++;
+                if(board[k][k] == j)
+                    num_j++;
+            }
 
-    if (inp[2][0] == inp[1][1] && inp[2][0] != inp[0][2] ||
-        inp[1][1] == inp[0][2] && inp[1][1] != inp[2][0] ||
-        inp[2][0] == inp[0][2] && inp[2][0] != inp[1][1])
-    {
-        if (!(arr[inp[2][0] - '0'] &&
-            arr[inp[1][1] - '0'] &&
-            arr[inp[0][2] - '0']))
-            ans++;
-    }
+            // 3개의 칸에 i, j가 총 3번 나오며
+            // 둘 다 최소 1번 이상 나오면 승리
+            if(num_i + num_j == 3 && num_i >= 1 && num_j >= 1)
+                win = true;
+
+
+            // 오른쪽 위에서 왼쪽 아래를 잇는 대각선으로 빙고가 만들어질 때
+            num_i = 0, num_j = 0;
+            for(int k = 0; k < MAX_A; k++) {
+                if(board[k][MAX_A - k - 1] == i)
+                    num_i++;
+                if(board[k][MAX_A - k - 1] == j)
+                    num_j++;
+            }
+
+            // 3개의 칸에 i, j가 총 3번 나오며
+            // 둘 다 최소 1번 이상 나오면 승리
+            if(num_i + num_j == 3 && num_i >= 1 && num_j >= 1)
+                win = true;
     */
 
     cout << ans;
