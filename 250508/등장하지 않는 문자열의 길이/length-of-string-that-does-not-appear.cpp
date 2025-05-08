@@ -29,6 +29,22 @@ int main() {
                     isAppear = true;
                     break;
                 }
+
+                /* 이런 느낌으로 인덱스 직접 비교가 빠르긴 할듯
+                for (int l = 0; l < i; l++)
+                {
+                    bool isSame = true;
+
+                    if (str[j + l] != str[k + l])
+                    {
+                        isSame = false;
+                        break;
+                    }
+                    
+                    if (isSame)
+                        isAppear = true;
+                }
+                */
             }
         }
 
