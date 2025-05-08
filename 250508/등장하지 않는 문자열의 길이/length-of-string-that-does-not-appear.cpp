@@ -29,22 +29,6 @@ int main() {
                     isAppear = true;
                     break;
                 }
-
-                /* 이런 느낌으로 인덱스 직접 비교가 빠르긴 할듯
-                for (int l = 0; l < i; l++)
-                {
-                    bool isSame = true;
-
-                    if (str[j + l] != str[k + l])
-                    {
-                        isSame = false;
-                        break;
-                    }
-                    
-                    if (isSame)
-                        isAppear = true;
-                }
-                */
             }
         }
 
@@ -59,3 +43,46 @@ int main() {
 
     return 0;
 }
+
+/* 해설은 substr 대신 인덱스를 직접 비교해서 좀 빠르겠군
+int main() {
+    cin >> N;
+    cin >> str;
+
+    int ans = 1;
+
+    for (int i = 1; i < N; i++)
+    {
+        bool isAppear = false;
+
+        for (int j = 0; j <= N - i; j++)
+        {
+            for (int k = j + 1; k <= N - i; k++)
+            {
+                bool isSame = true;
+
+                for (int l = 0; l < i; l++)
+                {
+                    if (str[j + l] != str[k + l])
+                    {
+                        isSame = false;
+                        break;
+                    }
+                }
+
+                if (isSame)
+                    isAppear = true;
+            }
+        }
+
+        if (isAppear)
+            ans = i + 1;
+        else
+            break;
+    }
+    
+    cout << ans;
+
+    return 0;
+}
+*/
