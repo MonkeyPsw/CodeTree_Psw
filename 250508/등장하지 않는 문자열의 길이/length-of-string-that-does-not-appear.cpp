@@ -5,35 +5,41 @@ using namespace std;
 
 int N;
 string str;
+string sub;
 
 int main() {
     cin >> N;
     cin >> str;
 
+    // i 부분문자열길이, j k 시작점
     for (int i = 1; i <= N; i++)
     {
-        string sub = str.substr(0, i);
+        bool isAppear = false;
 
-        for (int j = 1; j < N; j++)
+        for (int j = 0; j <= N - i; j++)
         {
-            if (i == N)
-            {
-                cout << N;
-                return 0;
-            }
-            
-            string sub2 = str.substr(j, i);
+            sub = str.substr(j, i);
 
-            if (sub2 == sub)
-                break;
-
-            if (sub2.length() != i)
+            for (int k = j + 1; k <= N - i; k++)
             {
-                cout << i;
-                return 0;
+                string sub2 = str.substr(k, i);
+
+                if (sub2 == sub)
+                {
+                    isAppear = true;
+                    break;
+                }
             }
         }
+
+        if (!isAppear)
+        {
+            cout << i;
+            return 0;
+        }
     }
+    
+    cout << N;
 
     return 0;
 }
