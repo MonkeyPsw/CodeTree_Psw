@@ -14,6 +14,7 @@ int main() {
         cin >> arr[i];
     }
 
+    /*
     sort(arr, arr + N);
 
     for (int i = 0; i < N; i++)
@@ -27,6 +28,21 @@ int main() {
         for (int j = 0; j < N; j++)
         {
             if (arr[j] >= min && arr[j] <= min + K)
+                cnt++;
+        }
+
+        ans = max(ans, cnt);
+    }
+    */
+
+    // 솔직히 완전탐색인데 이게 더 교육적으로는 좋을듯
+    for (int i = 1; i <= 10000; i++)
+    {
+        int cnt = 0;
+        
+        for (int j = 0; j < N; j++)
+        {
+            if (arr[j] >= i && arr[j] <= i + K)
                 cnt++;
         }
 
