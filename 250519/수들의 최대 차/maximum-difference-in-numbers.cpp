@@ -21,7 +21,7 @@ int main() {
         int min = arr[i];
         int cnt = 0;
 
-        if (min == arr[i - 1])
+        if (i > 0 && min == arr[i - 1])
             continue;
         
         for (int j = 0; j < N; j++)
