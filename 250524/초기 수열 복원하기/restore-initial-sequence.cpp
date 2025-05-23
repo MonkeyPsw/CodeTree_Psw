@@ -25,7 +25,7 @@ int main() {
         {
             int nextOriNum = adjacent[j] - oriNum[j];
 
-            if (nextOriNum == 0 || usedNum[nextOriNum])
+            if (nextOriNum <= 0 || usedNum[nextOriNum])
             {
                 isDone = false;
                 break;
