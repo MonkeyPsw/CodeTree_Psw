@@ -18,6 +18,18 @@ int main() {
         cin >> B[i];
     }
 
+    for (int i = 0; i < n; i++)
+    {
+        if (A[i] > B[i])
+        {
+            int num = A[i] - B[i];
+            A[i] -= num;
+            A[i + 1] += num;
+            ans += num;
+        }
+    }
+
+    /* 너무 복잡하게 했나봄
     for (int i = n - 1; i >= 0; i--)
     {
         if (A[i] < B[i])
@@ -39,6 +51,7 @@ int main() {
             }
         }
     }
+    */
 
     cout << ans;
 
