@@ -24,6 +24,9 @@ int main() {
         {
             for (int j = i - 1; j >= 0; j--)
             {
+                if (A[i] == B[i])
+                    break;
+                
                 while (A[j] > B[j])
                 {
                     A[j]--;
