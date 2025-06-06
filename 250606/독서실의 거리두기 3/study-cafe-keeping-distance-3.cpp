@@ -59,7 +59,7 @@ int main() {
         }
     }
 
-    seatNum[(rightPos - leftPos) / 2]++;
+    seatNum[(rightPos + leftPos) / 2]++;
 
     cout << calSeatDistance();
 
