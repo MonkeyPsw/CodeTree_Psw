@@ -17,6 +17,7 @@ int main() {
     for (int i = 1; i <= n; i++)
         firstMin = min(firstMin, a[i]);
     
+    /*
     int secondMin = 101;
     for (int i = 1; i <= n; i++)
     {
@@ -37,8 +38,32 @@ int main() {
             }
         }
     }
+    */
 
-    cout << ans;
+    int secondMin = 101;
+    for (int i = 1; i <= n; i++)
+    {
+        if (a[i] != firstMin)
+        {
+            int tmp = secondMin;
+            secondMin = min(secondMin, a[i]);
+
+            if (tmp != secondMin)
+                ans = i;
+        }
+    }
+
+    int cnt = 0;
+    for (int i = 1; i <= n; i++)
+    {
+        if (a[i] == secondMin)
+            cnt++;
+    }
+
+    if (cnt == 1)
+        cout << ans;
+    else
+        cout << -1;
 
     return 0;
 }
