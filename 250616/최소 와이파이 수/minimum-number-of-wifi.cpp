@@ -16,7 +16,7 @@ int main() {
     {
         if (arr[i] == 1)
         {
-            i += m + 1;
+            i += 2 * m;
             ans++;
         }
     }
