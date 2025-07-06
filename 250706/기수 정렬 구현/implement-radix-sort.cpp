@@ -37,7 +37,7 @@ int main() {
 
         for (int i = 0; i < 10; i++)
         {
-            for (int j = 0; j < arr_digits[i].size(); j++)
+            for (int j = 0; j < (int)arr_digits[i].size(); j++)
                 arr[cnt++] = arr_digits[i][j];
         }
 
