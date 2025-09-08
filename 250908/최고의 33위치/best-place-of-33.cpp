@@ -19,18 +19,21 @@ int main() {
 
     for (int x = 0; x < N - 2; x++)
     {
-        int cnt = 0;
-
-        for (int i = x; i <= x + 2; i++)
+        for (int y = 0; y < N - 2; y++)
         {
-            for (int j = x; j <= x + 2; j++)
-            {
-                if (grid[i][j])
-                    cnt++;
-            }
-        }
+            int cnt = 0;
 
-        ans = max(ans, cnt);
+            for (int i = x; i <= x + 2; i++)
+            {
+                for (int j = y; j <= y + 2; j++)
+                {
+                    if (grid[i][j])
+                        cnt++;
+                }
+            }
+
+            ans = max(ans, cnt);
+        }
     }
 
     cout << ans;
