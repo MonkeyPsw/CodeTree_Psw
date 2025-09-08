@@ -26,13 +26,10 @@ int main() {
                 tmp++;
             else
                 tmp = 1;
-
-            if (tmp == m)
-            {
-                ans++;
-                break;
-            }
         }
+
+        if (tmp >= m)
+            ans++;
     }
 
     for (int i = 0; i < n; i++)
@@ -45,13 +42,10 @@ int main() {
                 tmp++;
             else
                 tmp = 1;
-
-            if (tmp == m)
-            {
-                ans++;
-                break;
-            }
         }
+
+        if (tmp >= m)
+            ans++;
     }
 
     cout << ans;
