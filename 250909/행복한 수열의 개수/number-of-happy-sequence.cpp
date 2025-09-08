@@ -18,6 +18,7 @@ int main() {
 
     for (int i = 0; i < n; i++)
     {
+        int maxTmp = 1;
         int tmp = 1;
 
         for (int j = 0; j < n - 1; j++)
@@ -25,15 +26,21 @@ int main() {
             if (grid[i][j] == grid[i][j + 1])
                 tmp++;
             else
+            {
+                maxTmp = max(maxTmp, tmp);
                 tmp = 1;
+            }
         }
 
-        if (tmp >= m)
+        maxTmp = max(maxTmp, tmp);
+
+        if (maxTmp >= m)
             ans++;
     }
 
     for (int i = 0; i < n; i++)
     {
+        int maxTmp = 1;
         int tmp = 1;
 
         for (int j = 0; j < n - 1; j++)
@@ -41,10 +48,15 @@ int main() {
             if (grid[j][i] == grid[j + 1][i])
                 tmp++;
             else
+            {
+                maxTmp = max(maxTmp, tmp);
                 tmp = 1;
+            }
         }
+        
+        maxTmp = max(maxTmp, tmp);
 
-        if (tmp >= m)
+        if (maxTmp >= m)
             ans++;
     }
 
