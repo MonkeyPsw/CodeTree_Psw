@@ -55,7 +55,7 @@ int main() {
         bool isRight = false;
         r--;
 
-        if (d = 'L')
+        if (d == 'L')
         {
             LeftWind(r);
             isRight = true;
@@ -78,10 +78,14 @@ int main() {
                     isRight = true;
                 }
             }
+            else
+                break;
         }
 
-        if (d = 'L')
+        if (d == 'L')
             isRight = true;
+        else
+            isRight = false;
 
         for (int j = r; j < n - 1; j++)
         {
@@ -94,6 +98,8 @@ int main() {
                 
                 isRight = !isRight;
             }
+            else
+                break;
         }
     }
 
