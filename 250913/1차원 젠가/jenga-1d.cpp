@@ -7,12 +7,15 @@ int blocks[100];
 int s1, e1;
 int s2, e2;
 int tmp[100];
-int cnt;
+int cnt, cnt2;
 
 void TmpToBlock()
 {
     for (int i = 0; i < cnt; i++)
         blocks[i] = tmp[i];
+    
+    for (int i = 0; i < 100; i++)
+        tmp[i] = 0;
 }
 
 int main() {
@@ -29,19 +32,17 @@ int main() {
             tmp[cnt++] = blocks[i];
     }
 
-    n -= cnt;
     TmpToBlock();
-    cnt = 0;
 
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < cnt; i++)
     {
         if (i < s2 - 1 || i > e2 - 1)
-            tmp[cnt++] = blocks[i];
+            tmp[cnt2++] = blocks[i];
     }
-
-    cout << cnt << endl;
     
-    for (int i = 0; i < cnt; i++)
+    cout << cnt2 << endl;
+    
+    for (int i = 0; i < cnt2; i++)
         cout << tmp[i] << endl;
 
     return 0;
