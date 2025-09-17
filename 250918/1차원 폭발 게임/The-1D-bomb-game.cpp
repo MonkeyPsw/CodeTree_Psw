@@ -31,7 +31,7 @@ void FillNumbersZero(int start, int end)
 
 void CheckNumCnt(int cnt)
 {
-    for (int i = 0; i < cnt - 1; i++)
+    for (int i = 0; i < cnt; i++)
     {
         if (!numbers[i])
             continue;
@@ -67,7 +67,7 @@ int main() {
 
         if (afterCnt == beforeCnt)
             break;
-            
+
         beforeCnt = afterCnt;
     }
 
