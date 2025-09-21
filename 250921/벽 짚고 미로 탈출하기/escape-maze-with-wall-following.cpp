@@ -5,7 +5,7 @@ using namespace std;
 int N;
 int x, y;
 char grid[100][100];
-bool isVisited[100][100];
+bool isVisited[100][100][4];
 int ans, dir;
 // 우상좌하 +1반시계 +3시계
 int dx[4] = {0, -1, 0, 1};
@@ -28,7 +28,7 @@ int main() {
 
     int curX = --x;
     int curY = --y;
-    isVisited[curX][curY] = true;
+    isVisited[curX][curY][dir] = true;
 
     while (true)
     {
@@ -43,13 +43,13 @@ int main() {
         }
 
         // 루프체크
-        if (isVisited[nx][ny])
+        if (isVisited[nx][ny][dir])
         {
             ans = -1;
             break;
         }
         else
-            isVisited[nx][ny] = true;
+            isVisited[nx][ny][dir] = true;
 
         // 이동방향이 벽이면 반시계 회전
         if (grid[nx][ny] == '#')
@@ -73,7 +73,7 @@ int main() {
                 curX = nnx;
                 curY = nny;
                 ans++;
-                isVisited[nnx][nny] = true;
+                isVisited[nnx][nny][dir] = true;
                 continue;
             }
         }
