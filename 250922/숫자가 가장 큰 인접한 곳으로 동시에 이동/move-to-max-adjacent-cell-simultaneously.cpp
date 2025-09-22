@@ -4,9 +4,9 @@
 using namespace std;
 
 int n, m, t;
-int a[21][21];
+int a[20][20];
 int r[400], c[400];
-int marble[21][21], tmpMarble[21][21];
+int marble[20][20], tmpMarble[20][20];
 int dx[4] = {-1, 1, 0, 0};
 int dy[4] = {0, 0, -1, 1};
 int ans;
@@ -19,14 +19,12 @@ bool InRange(int x, int y)
 void NextMarbleCnt(int x, int y)
 {
     int maxNum = 0;
-    int curX = x;
-    int curY = y;
     int maxX = 0, maxY = 0;
 
     for (int i = 0; i < 4; i++)
     {
-        int nx = curX + dx[i];
-        int ny = curY + dy[i];
+        int nx = x + dx[i];
+        int ny = y + dy[i];
 
         if (InRange(nx, ny) && a[nx][ny] > maxNum)
         {
