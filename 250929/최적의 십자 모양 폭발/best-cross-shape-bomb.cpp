@@ -6,7 +6,6 @@ using namespace std;
 int n;
 int grid[50][50];
 int tmpGrid[50][50];
-bool checkGrid[50][50];
 int ans;
 
 void CopyGrid()
@@ -55,6 +54,7 @@ void arrToGrid(int y)
         tmpGrid[i][y] = tmpArr[n - 1 - i];
 }
 
+// 정확히 2개의 칸 이라는 말을 잘못 이해해서 멀리 돌아왔다
 int CheckBest()
 {
     int cnt = 0;
@@ -62,38 +62,20 @@ int CheckBest()
     // 행에서 쌍 확인
     for (int i = 0; i < n; i++)
     {
-        int j = 0;
-
-        while (j < n)
+        for (int j = 0; j < n - 1; j++)
         {
-            int k = j + 1;
-
-            while (k < n && tmpGrid[i][j] == tmpGrid[i][k])
-                k++;
-            
-            if (tmpGrid[i][j] && k - j == 2)
+            if (tmpGrid[i][j] && tmpGrid[i][j] == tmpGrid[i][j + 1])
                 cnt++;
-            
-            j = k;
         }
     }
 
     // 열에서 쌍 확인
-    for (int j = 0; j < n; j++)
+    for (int i = 0; i < n - 1; i++)
     {
-        int i = 0;
-
-        while (i < n)
+        for (int j = 0; j < n; j++)
         {
-            int k = i + 1;
-
-            while (k < n && tmpGrid[i][j] == tmpGrid[k][j])
-                k++;
-            
-            if (tmpGrid[i][j] && k - i == 2)
+            if (tmpGrid[i][j] && tmpGrid[i][j] == tmpGrid[i + 1][j])
                 cnt++;
-            
-            i = k;
         }
     }
 
