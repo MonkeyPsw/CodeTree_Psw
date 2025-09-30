@@ -8,7 +8,7 @@ int grid[100][100];
 // 우하좌상
 int dx[4] = {0, 1, 0, -1};
 int dy[4] = {1, 0, -1, 0};
-int tmp1, tmp2;
+int ans;
 
 bool InRange(int x, int y)
 {
@@ -63,13 +63,12 @@ int main() {
     for (int i = 0; i < n; i++)
         for (int j = 0; j < n; j++) cin >> grid[i][j];
 
+    // 제대로 구현 다 해놓고 최고값 찾기를 틀렸네 나는 바보
     for (int i = 0; i < n; i++)
-    {
-        tmp1 = max(Pinball(0, i, 1), Pinball(i, 0, 0));
-        tmp2 = max(Pinball(n - 1, i, 3), Pinball(i, n - 1, 2));
-    }
+        ans = max({ans, Pinball(0, i, 1), Pinball(i, 0, 0),
+                  Pinball(n - 1, i, 3), Pinball(i, n - 1, 2)});
 
-    cout << max(tmp1, tmp2);
+    cout << ans;
 
     return 0;
 }
