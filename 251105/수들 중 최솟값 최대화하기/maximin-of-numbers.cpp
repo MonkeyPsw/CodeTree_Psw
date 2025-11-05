@@ -28,23 +28,20 @@ void Choose(int cur)
         return;
     }
 
-    for (int i = 0; i < n; i++)
+    for (int j = 0; j < n; j++)
     {
-        for (int j = 0; j < n; j++)
-        {
-            if (visitedX[i] || visitedY[j])
-                continue;
+        if (visitedX[cur] || visitedY[j])
+            continue;
 
-            visitedX[i] = true;
-            visitedY[j] = true;
-            arr.push_back(grid[i][j]);
+        visitedX[cur] = true;
+        visitedY[j] = true;
+        arr.push_back(grid[cur][j]);
 
-            Choose(cur + 1);
+        Choose(cur + 1);
 
-            arr.pop_back();
-            visitedX[i] = false;
-            visitedY[j] = false;
-        }
+        arr.pop_back();
+        visitedX[cur] = false;
+        visitedY[j] = false;
     }
 
     return;
