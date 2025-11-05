@@ -6,7 +6,7 @@ using namespace std;
 
 int n;
 int grid[10][10];
-bool visitedX[10], visitedY[10];
+bool visited[10];
 int ans;
 vector<int> arr;
 
@@ -30,18 +30,16 @@ void Choose(int cur)
 
     for (int j = 0; j < n; j++)
     {
-        if (visitedX[cur] || visitedY[j])
+        if (visited[j])
             continue;
 
-        visitedX[cur] = true;
-        visitedY[j] = true;
+        visited[j] = true;
         arr.push_back(grid[cur][j]);
 
         Choose(cur + 1);
 
         arr.pop_back();
-        visitedX[cur] = false;
-        visitedY[j] = false;
+        visited[j] = false;
     }
 
     return;
