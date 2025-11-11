@@ -33,7 +33,7 @@ int main() {
 
     DFS(1);
 
-    cout << ans - 1;
+    cout << (ans ? ans - 1 : ans);
 
     return 0;
 }
