@@ -31,9 +31,11 @@ int main() {
         graph[to[i]][from[i]]++;
     }
 
+    visited[1] = true;
     DFS(1);
 
-    cout << (ans ? ans - 1 : ans);
+    cout << ans;
+    //cout << (ans ? ans - 1 : ans);
 
     return 0;
 }
