@@ -58,7 +58,8 @@ int main() {
     }
     */
 
-    cout << (visited[0][0] && visited[n - 1][m - 1] ? 1 : 0);
+    //cout << (visited[0][0] && visited[n - 1][m - 1] ? 1 : 0);
+    cout << visited[n - 1][m - 1];
 
     return 0;
 }
