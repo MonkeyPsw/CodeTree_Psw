@@ -20,7 +20,7 @@ bool CanGo(int x, int y)
 {
     if (!InRange(x, y))
         return false;
-    if (visited[x][y] || step[x][y])
+    if (visited[x][y] || step[x][y] != -1)
         return false;
     
     return true;
@@ -58,10 +58,16 @@ int main() {
     cin >> n;
     cin >> r1 >> c1 >> r2 >> c2;
 
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+            step[i][j] = -1;
+    }
+
     Push(r1 - 1, c1 - 1, 0);
     BFS();
 
-    cout << (step[r2 - 1][c2 - 1] ? step[r2 - 1][c2 - 1] : -1);
+    cout << step[r2 - 1][c2 - 1];
 
     return 0;
 }
