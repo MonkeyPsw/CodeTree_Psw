@@ -5,7 +5,7 @@
 using namespace std;
 
 int N, M;
-int coin[100];
+int coin[101];
 int dp[10001];
 int ans;
 
