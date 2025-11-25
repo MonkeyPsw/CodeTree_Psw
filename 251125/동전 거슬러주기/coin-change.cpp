@@ -32,7 +32,7 @@ int main() {
         {
             if (i >= coin[j])
             {
-                if (dp[i - coin[j]] == INT_MIN)
+                if (dp[i - coin[j]] == INT_MAX)
                     continue;
                 
                 dp[i] = min(dp[i], dp[i - coin[j]] + 1);
