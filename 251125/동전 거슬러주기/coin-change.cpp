@@ -6,12 +6,12 @@ using namespace std;
 
 int N, M;
 int coin[100];
-int dp[100];
+int dp[10001];
 int ans;
 
 void Init()
 {
-    for (int i = 0; i <= M; i++)
+    for (int i = 1; i <= M; i++)
         dp[i] = INT_MAX;
     
     dp[0] = 0;
