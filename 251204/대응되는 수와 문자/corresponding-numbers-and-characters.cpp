@@ -9,6 +9,7 @@ int n, m;
 string words[100000];
 string queries[100000];
 
+/*
 unordered_map<string, int> sMap;
 unordered_map<int, string> iMap;
 
@@ -29,6 +30,32 @@ int main() {
             cout << iMap[stoi(queries[i])];
         else
             cout << sMap[queries[i]];
+
+        cout << endl;
+    }
+
+    return 0;
+}
+*/
+
+unordered_map<string, int> map;
+
+int main() {
+    cin >> n >> m;
+
+    for (int i = 1; i <= n; i++) {
+        cin >> words[i];
+
+        map[words[i]] = i;
+    }
+
+    for (int i = 0; i < m; i++) {
+        cin >> queries[i];
+
+        if (isdigit(queries[i][0]))
+            cout << words[stoi(queries[i])];
+        else
+            cout << map[queries[i]];
 
         cout << endl;
     }
