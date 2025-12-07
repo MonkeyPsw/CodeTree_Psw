@@ -5,7 +5,7 @@ using namespace std;
 
 int n, k;
 int arr[100000];
-unordered_map<int, int> iMap;
+unordered_map<long long, int> iMap;
 long long ans;
 
 int main() {
@@ -16,7 +16,7 @@ int main() {
 
     for (int i = 0; i < n; i++)
     {
-        ans += iMap[k - arr[i]];
+        ans += iMap[(long long)k - arr[i]];
 
         iMap[arr[i]]++;
     }
