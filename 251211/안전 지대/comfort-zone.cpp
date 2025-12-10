@@ -73,7 +73,7 @@ int main() {
             }
         }
 
-        if (tmp > maxComfortZoneCnt)
+        if (tmp >= maxComfortZoneCnt)
         {
             maxComfortZoneCnt = tmp;
             BestK = k;
