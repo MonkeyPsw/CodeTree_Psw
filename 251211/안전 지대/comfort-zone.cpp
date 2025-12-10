@@ -8,7 +8,7 @@ int grid[50][50];
 int visited[50][50];
 int visitedCnt;
 int dx[4] = {1, 0, -1, 0}, dy[4] = {0, 1, 0, -1};
-int maxK, BestK, maxComfortZoneCnt;
+int maxK, BestK = 1, maxComfortZoneCnt;
 
 bool InRange(int x, int y)
 {
@@ -73,7 +73,7 @@ int main() {
             }
         }
 
-        if (tmp >= maxComfortZoneCnt)
+        if (tmp > maxComfortZoneCnt)
         {
             maxComfortZoneCnt = tmp;
             BestK = k;
