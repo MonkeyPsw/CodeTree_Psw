@@ -35,7 +35,7 @@ int main() {
             int tmp = C[i] + D[j];
 
             if (ump.find(-tmp) != ump.end())
-                ans++;
+                ans += ump[-tmp];
         }
     }
     
