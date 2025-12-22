@@ -36,7 +36,7 @@ int main() {
         else if (command[i] == "largest")
             cout << (st.rbegin() != st.rend() ? to_string(*st.rbegin()) : "None") << endl;
         else
-            cout << (st.rbegin() != st.rend() ? to_string(*st.begin()) : "None") << endl;
+            cout << (st.begin() != st.end() ? to_string(*st.begin()) : "None") << endl;
     }
 
     return 0;
