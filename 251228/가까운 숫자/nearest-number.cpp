@@ -1,5 +1,6 @@
 #include <iostream>
 #include <set>
+#include <climits>
 #include <algorithm>
 
 using namespace std;
@@ -7,7 +8,7 @@ using namespace std;
 int n;
 int queries[100000];
 set<int> st;
-int cnt = 100000;
+int cnt = INT_MAX;
 
 int main() {
     cin >> n;
