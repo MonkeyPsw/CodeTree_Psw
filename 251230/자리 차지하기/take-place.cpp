@@ -19,12 +19,24 @@ int main() {
     
     for (int i = 0; i < n; i++)
     {
+        /* 바로 --보단 그냥 시작점인지 검사하는게 낫겠네
         set<int>::iterator it = st.upper_bound(a[i]);
         it--;
 
         if (*it <= a[i])
         {
             st.erase(it);
+            cnt++;
+        }
+        else
+            break;
+        */
+
+        set<int>::iterator it = st.upper_bound(a[i]);
+
+        if (it != st.begin())
+        {
+            st.erase(--it);
             cnt++;
         }
         else
