@@ -25,7 +25,10 @@ int main() {
             ans = min(ans, *st.lower_bound(*it + m) - *it);
     }
 
-    cout << ans;
+    if (ans == INT_MAX)
+        cout << -1;
+    else
+        cout << ans;
 
     return 0;
 }
