@@ -25,7 +25,7 @@ int main() {
 
     for (int i = 0; i < m; i++)
     {
-        set<pair<int, int> >::iterator it = pst.lower_bound(make_pair(k[i], -1));
+        set<pair<int, int> >::iterator it = pst.lower_bound(make_pair(k[i], 0));
 
         if (it == pst.end())
             cout << -1 << " " << -1;
