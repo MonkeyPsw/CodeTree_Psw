@@ -26,9 +26,8 @@ int main() {
     for (int i = 0; i < m; i++)
     {
         int nx = 0, ny = 0;
-        tuple<int, int, int> nearPoint = pq.top();
 
-        tie(ignore, nx, ny) = nearPoint;
+        tie(ignore, nx, ny) = pq.top();
         nx += 2;
         ny += 2;
 
@@ -36,8 +35,7 @@ int main() {
         pq.pop();
     }
 
-    tuple<int, int, int> nearestPoint = pq.top();
-    tie(ignore, ansX, ansY) = nearestPoint;
+    tie(ignore, ansX, ansY) = pq.top();
 
     cout << ansX << " " << ansY;
 
