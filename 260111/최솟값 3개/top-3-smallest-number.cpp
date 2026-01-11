@@ -23,7 +23,7 @@ int main() {
             continue;
         }
 
-        int num[3] = {};
+        long long num[3] = {};
 
         for (int j = 0; j < 3; j++)
         {
