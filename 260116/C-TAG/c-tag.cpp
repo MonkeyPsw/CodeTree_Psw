@@ -6,7 +6,7 @@ using namespace std;
 int n, m;
 string A[500];
 string B[500];
-
+unordered_set<string> ust;
 int ans;
 
 int main() {
@@ -16,15 +16,14 @@ int main() {
 
     for (int i = 0; i < n; i++) cin >> B[i];
 
-    
     for (int i = 0; i < m; i++)
     {
         for (int j = i + 1; j < m; j++)
         {
             for (int k = j + 1; k < m; k++)
             {
-                unordered_set<string> ustA;
-                unordered_set<string> ustB;
+                ust.clear();
+
                 bool isTag = true;
 
                 for (int group = 0; group < n; group++)
@@ -35,7 +34,7 @@ int main() {
                     tagA += A[group][j];
                     tagA += A[group][k];
 
-                    ustA.insert(tagA);
+                    ust.insert(tagA);
                 }
 
                 for (int group = 0; group < n; group++)
@@ -46,13 +45,11 @@ int main() {
                     tagB += B[group][j];
                     tagB += B[group][k];
 
-                    if (ustA.find(tagB) != ustA.end())
+                    if (ust.find(tagB) != ust.end())
                     {
                         isTag = false;
                         break;
                     }
-                    else
-                        ustB.insert(tagB);
                 }
 
                 if (isTag)
