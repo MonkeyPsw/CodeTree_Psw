@@ -26,8 +26,8 @@ int main() {
         {
             swap(seat[a[i]], seat[b[i]]);
 
-            ust[seat[a[i]]].insert(b[i]);
-            ust[seat[b[i]]].insert(a[i]);
+            ust[seat[a[i]]].insert(a[i]);
+            ust[seat[b[i]]].insert(b[i]);
         }
     }
 
