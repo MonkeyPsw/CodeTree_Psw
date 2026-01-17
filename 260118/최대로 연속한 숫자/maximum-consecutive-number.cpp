@@ -20,21 +20,33 @@ int main() {
 
     for (int i = 0; i < m; i++)
     {
-        st.insert(nums[i]); 
-
-        //cout << *it << " " << *prev(it) << endl;
+        st.insert(nums[i]);
         
-        /*
         set<int>::iterator it = st.find(nums[i]);
 
-        int left = *prev(it);
-        int right = *next(it);
+        int left = *prev(it) - *it;
+        int right = *next(it) - *it;
 
-        int tmp = max((right - *it - 1), (*it - left - 1));
+        int tmp = max((right - 1), (left - 1));
 
-        ans = max(ans, tmp);
-        */
+        if (tmp == ans)
+            cout << ans << endl;
+        else
+        {
+            it = st.begin();
+            it++;
 
+            while (it != st.end())
+            {
+                tmp = max(tmp, (*it - *prev(it) - 1));
+                it++;
+            }
+
+            ans = tmp;
+            cout << tmp << endl;
+        }
+
+        /* 시간초과
         set<int>::iterator it = st.begin();
         it++;
 
@@ -53,6 +65,7 @@ int main() {
             cout << tmp << endl;
             ans = tmp;
         }
+        */
     }
 
     return 0;
