@@ -21,10 +21,12 @@ int main() {
 
     for (int i = 0; i < m; i++)
     {
-        set<int>::iterator it = st.upper_bound(nums[i]);
+        st.insert(nums[i]);
+
+        set<int>::iterator it = st.find(nums[i]);
 
         int leftNum = *prev(it);
-        int rightNum = *it;
+        int rightNum = *next(it);
 
         if (length.find(make_pair(rightNum - leftNum - 1, rightNum)) != length.end())
             length.erase(make_pair(rightNum - leftNum - 1, rightNum));
@@ -34,7 +36,6 @@ int main() {
 
         cout << length.rbegin()->first << endl;
 
-        st.insert(nums[i]);
 
         /* 시간초과
         set<int>::iterator it = st.begin();
