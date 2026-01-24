@@ -49,7 +49,7 @@ int main() {
 
     int onlyOneMax = max({rL[N], sL[N], pL[N]});
 
-    for (int k = 1; k < N; k++)
+    for (int k = 1; k < N - 1; k++)
     {
         rToS = max(rToS, rL[k] + sR[k + 1]);
         rToP = max(rToP, rL[k] + pR[k + 1]);
