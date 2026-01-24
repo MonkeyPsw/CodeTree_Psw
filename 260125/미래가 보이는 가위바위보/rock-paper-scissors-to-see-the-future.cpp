@@ -47,7 +47,7 @@ int main() {
         sR[i] = sWinCnt;
     }
 
-    int onlyOneMax = max({rL[N], sL[N], pL[N]});
+    int onlyOneMax = max({rL[N - 1], sL[N - 1], pL[N - 1]});
 
     for (int k = 1; k < N - 1; k++)
     {
