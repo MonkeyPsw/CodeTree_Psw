@@ -33,7 +33,7 @@ int main() {
     }
 
     for (int i = 2; i < n - 2; i++)
-        ans = max(ans, arr[i - 2] + arr[i] + arr[i + 2]);
+        ans = max(ans, maxL[i - 2] + arr[i] + maxR[i + 2]);
 
     cout << ans;
 
