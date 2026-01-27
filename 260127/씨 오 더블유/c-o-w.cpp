@@ -33,29 +33,8 @@ int main() {
 
     for (int i = 1; i < n - 1; i++)
     {
-        int cntO = 1;
-
         if (word[i] == 'O')
-        {
-            int endIdx = -1;
-            for (int j = i + 1; j < n - 1; j++)
-            {
-                if (word[j] != 'O')
-                {
-                    endIdx = j;
-                    break;
-                }
-
-                cntO++;
-            }
-
-            if (endIdx == -1)
-                continue;
-
-            ans += (long long)cntC[i - 1] * cntO * cntW[endIdx];
-
-            i = endIdx;
-        }
+            ans += (long long)cntC[i - 1] * cntW[i + 1];
     }
 
     cout << ans;
