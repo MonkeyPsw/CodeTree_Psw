@@ -49,6 +49,9 @@ int main() {
                 cntO++;
             }
 
+            if (endIdx == -1)
+                continue;
+
             ans += (long long)cntC[i - 1] * cntO * cntW[endIdx];
 
             i = endIdx;
