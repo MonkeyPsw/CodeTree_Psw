@@ -5,7 +5,7 @@ using namespace std;
 
 string A;
 int close[100000];
-int ans;
+long long ans;
 
 int main() {
     cin >> A;
