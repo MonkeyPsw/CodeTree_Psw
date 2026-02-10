@@ -6,8 +6,8 @@ int n;
 long long arr[100000];
 long long arrSum[100000];
 long long targetL[100000], targetR[100000];
-long long sum, target;
-int cnt, ans;
+long long sum, target, ans;
+int cnt;
 
 int main() {
     cin >> n;
@@ -59,6 +59,6 @@ int main() {
         ans += targetL[i] * targetR[i];
 
     cout << ans;
-    
+
     return 0;
 }
