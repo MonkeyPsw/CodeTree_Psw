@@ -23,8 +23,7 @@ int main() {
             j++;
         }
 
-        if (j < n && ump[arr[j]] >= k)
-            ans = max(ans, j - i);
+        ans = max(ans, j - i);
         
         ump[arr[i]]--;
     }
