@@ -6,9 +6,9 @@ using namespace std;
 
 long long m;
 long long a, b;
-long long minAns = LLONG_MAX, maxAns = LLONG_MIN;
+int minAns = INT_MAX, maxAns = INT_MIN;
 
-long long SearchNum(long long num)
+int SearchNum(long long num)
 {
     int cnt = 0;
     long long left = 1, right = m;
