@@ -33,7 +33,7 @@ int main() {
     }
 
     long long left = 1;
-    long long right = n * maxTime;
+    long long right = (long long)n * maxTime;
 
     while (left <= right)
     {
