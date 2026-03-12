@@ -12,6 +12,7 @@ int main() {
         cin >> coins[i];
     }
 
+    /*
     for (int i = n - 1; i >= 0; i--)
     {
         while (sum + coins[i] <= k)
@@ -19,6 +20,12 @@ int main() {
             ans++;
             sum += coins[i];
         }
+    }
+    */
+    for (int i = n - 1; i >= 0; i--)
+    {
+        ans += k / coins[i];
+        k %= coins[i];
     }
 
     cout << ans;
