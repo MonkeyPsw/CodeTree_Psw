@@ -36,7 +36,7 @@ int main() {
         }
         else
         {
-            ans += (double)ratio * M;
+            ans += ratio * M;
             break;
         }
     }
