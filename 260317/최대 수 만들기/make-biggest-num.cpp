@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include <algorithm>
 
 using namespace std;
@@ -8,7 +9,10 @@ string arr[50000];
 
 bool cmp(string a, string b)
 {
-    return a + b > b + a;
+    if (a + b > b + a)
+        return true;
+
+    return false;
 }
 
 int main() {
