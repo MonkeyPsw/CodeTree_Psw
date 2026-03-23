@@ -65,10 +65,24 @@ int main() {
         }
     }
 
+    //야 이게 왜 통과해 틀린코드인데
+    /*
     if (arr[n - 1][n - 1] == 0)
         cout << -1;
     else
         cout << ans;
+    */
+
+    for (int i = 0; i < n; i++)
+    {
+        if (arr[n - 1][i] == 0)
+        {
+            cout << -1;
+            return 0;
+        }
+    }
+
+    cout << ans;
 
     return 0;
 }
