@@ -1,22 +1,24 @@
 #include <iostream>
 #include <algorithm>
+#include <utility>
 
 using namespace std;
 
 int N, M;
 long long a[100000], b[100000];
+pair<long long, long long> p[100000];
 long long ans;
 
 bool IsPossible(long long dist)
 {
     int cnt = 1;
-    long long last = a[0];
+    long long last = p[0].first;
 
     for (int i = 0; i < M; i++)
     {
-        long long pos = max(a[i], last + dist);
+        long long pos = max(p[i].first, last + dist);
 
-        while (pos <= b[i])
+        while (pos <= p[i].second)
         {
             cnt++;
             last = pos;
@@ -36,6 +38,11 @@ int main() {
     for (int i = 0; i < M; i++) {
         cin >> a[i] >> b[i];
     }
+
+    for (int i = 0; i < M; i++)
+        p[i] = make_pair(a[i], b[i]);
+    
+    sort(p, p + M);
 
     long long left = 1;
     long long right = 1e18;
