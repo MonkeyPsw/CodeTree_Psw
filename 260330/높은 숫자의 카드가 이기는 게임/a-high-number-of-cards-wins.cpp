@@ -25,7 +25,7 @@ int main() {
         if (A.upper_bound(B[i]) != A.end())
         {
             ans++;
-            A.erase(B[i]);
+            A.erase(A.upper_bound(B[i]));
         }
         else
             A.erase(A.begin());
