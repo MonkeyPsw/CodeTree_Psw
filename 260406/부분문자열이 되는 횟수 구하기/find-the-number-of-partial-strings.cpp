@@ -5,7 +5,7 @@ using namespace std;
 string A;
 string B;
 int del[200000];
-int ans;
+int ans = -1;
 
 bool IsPossible(int num)
 {
