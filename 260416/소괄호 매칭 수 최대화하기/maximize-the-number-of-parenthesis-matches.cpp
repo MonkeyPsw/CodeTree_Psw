@@ -1,6 +1,63 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
+#include <utility>
+
+using namespace std;
+
+int n;
+string s[100000];
+pair<int, int> p[100000];
+long long ans;
+
+bool cmp(const pair<int, int>& a, const pair<int, int>& b)
+{
+    return (long long)a.first * b.second > (long long)b.first * a.second;
+}
+
+int main() {
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        cin >> s[i];
+    }
+
+    for (int i = 0; i < n; i++)
+    {
+        int leftCnt = 0;
+        int rightCnt = 0;
+
+        for (int j = 0; j < s[i].length(); j++)
+        {
+            if (s[i][j] == '(')
+                leftCnt++;
+            else
+            {
+                rightCnt++;
+                ans += leftCnt;
+            }
+        }
+
+        p[i] = make_pair(leftCnt, rightCnt);
+    }
+
+    sort(p, p + n, cmp);
+
+    int open = 0;
+    for (int i = 0; i < n; i++)
+    {
+        ans += (long long)open * p[i].second;
+        open += p[i].first;
+    }
+
+    cout << ans;
+
+    return 0;
+}
+
+/*
+#include <iostream>
+#include <string>
+#include <algorithm>
 #include <tuple>
 
 using namespace std;
@@ -26,7 +83,6 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> s[i];
     }
-
 
     for (int i = 0; i < n; i++)
     {
@@ -71,3 +127,4 @@ int main() {
 
     return 0;
 }
+*/
