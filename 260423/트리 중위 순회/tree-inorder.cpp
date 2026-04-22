@@ -1,20 +1,24 @@
 #include <iostream>
 #include <vector>
 
+#define MAX_N 1024
+
 using namespace std;
 
 int K;
 vector<int> inorder_traversal;
-vector<int> depth_nodes[11];
 
-void dfs(int left, int right, int depth) {
-    if (left > right) return;
+int n;
+int tree_num[MAX_N];
+int idx = 0;
 
-    int mid = (left + right) / 2;
-    depth_nodes[depth].push_back(inorder_traversal[mid]);
+void inorder_fill(int node) {
+    if (node > n) return;
 
-    dfs(left, mid - 1, depth + 1);
-    dfs(mid + 1, right, depth + 1);
+    inorder_fill(node * 2);
+    tree_num[node] = inorder_traversal[idx];
+    idx++;
+    inorder_fill(node * 2 + 1);
 }
 
 int main() {
@@ -25,11 +29,16 @@ int main() {
         cin >> inorder_traversal[i];
     }
 
-    dfs(0, (1 << K) - 2, 1);
+    n = (1 << K) - 1;
 
-    for (int i = 1; i <= K; i++) {
-        for (int j = 0; j < depth_nodes[i].size(); j++) {
-            cout << depth_nodes[i][j] << ' ';
+    inorder_fill(1);
+
+    for (int depth = 1; depth <= K; depth++) {
+        int start = 1 << (depth - 1);
+        int end = (1 << depth) - 1;
+
+        for (int i = start; i <= end; i++) {
+            cout << tree_num[i] << ' ';
         }
         cout << endl;
     }
