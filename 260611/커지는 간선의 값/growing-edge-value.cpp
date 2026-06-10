@@ -1,0 +1,65 @@
+#include <iostream>
+#include <tuple>
+#include <algorithm>
+
+using namespace std;
+
+int n, m, k;
+int from[100000], to[100000], weight[100000];
+
+tuple<int, int, int> edges[100000];
+
+int parent[100001];
+
+int Find(int x) {
+    if (parent[x] == x)
+        return x;
+
+    return parent[x] = Find(parent[x]);
+}
+
+void Union(int x, int y) {
+    int X = Find(x);
+    int Y = Find(y);
+
+    if (X != Y)
+        parent[X] = Y;
+}
+
+int main() {
+    cin >> n >> m >> k;
+
+    for (int i = 0; i < m; i++) {
+        cin >> from[i] >> to[i] >> weight[i];
+        edges[i] = make_tuple(weight[i], from[i], to[i]);
+    }
+
+    for (int i = 1; i <= n; i++) {
+        parent[i] = i;
+    }
+
+    sort(edges, edges + m);
+
+    long long answer = 0;
+    int cnt = 0;
+
+    for (int i = 0; i < m; i++) {
+        int w, a, b;
+        tie(w, a, b) = edges[i];
+
+        if (Find(a) != Find(b)) {
+            Union(a, b);
+            answer += w;
+            cnt++;
+
+            if (cnt == n - 1)
+                break;
+        }
+    }
+
+    answer += 1LL * k * (n - 1) * (n - 2) / 2;
+
+    cout << answer;
+
+    return 0;
+}
