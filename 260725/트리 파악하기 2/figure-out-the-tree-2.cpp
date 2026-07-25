@@ -21,7 +21,7 @@ void PrintTree(int cur, int depth) {
             cout << "--";
         }
 
-        cout << char('A' + i) << '\n';
+        cout << char('A' + i) << endl;
 
         PrintTree(trie[cur][i], depth + 1);
     }
